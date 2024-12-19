@@ -7,6 +7,7 @@ import org.jsp.user_management.dao.UserDao;
 import org.jsp.user_management.entity.User;
 import org.jsp.user_management.entity.UserStatus;
 import org.jsp.user_management.exceptionclasses.InvalidCredentialException;
+import org.jsp.user_management.repository.UserRepository;
 import org.jsp.user_management.responsestructure.ResponseStructure;
 import org.jsp.user_management.util.AuthUser;
 import org.jsp.user_management.util.MyUtil;
@@ -168,9 +169,14 @@ public class UserService {
 	                    .data(user)
 	                    .build());
 	}
-
-		
-		
-		
 	
+	  public Optional<User> getUserByEmail(String email) {
+	        return userDao.getUserByEmail(email);
+	    }
+
 }
+
+	
+	
+	
+

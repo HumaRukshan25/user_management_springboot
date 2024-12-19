@@ -58,6 +58,15 @@ public class UserController {
     	return service.verifyOtp(id,otp);
     	
     }
+    
+    @GetMapping("/email/{email}")
+    public ResponseEntity<?> getUserByEmail(@PathVariable String email) {
+        Optional<User> user = service.getUserByEmail(email);
+        return user.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+    }
+
+    
+    
 }
 
 

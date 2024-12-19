@@ -29,4 +29,9 @@ public class UserDao {
     public List<User> findAllUsers() {
         return repository.findAll();
     }
+    
+    public Optional<User> getUserByEmail(String email) {
+        return repository.findByEmail(email);
+    }
+    
 }
